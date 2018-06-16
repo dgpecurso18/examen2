@@ -53,16 +53,24 @@ public class MyController extends AbstractVerticle {
         return Json.encodePrettily(info);
     }
 
-    public static Integer cantidad(int num) {
+    public static Long cantidad(int num) {
+        long digitos=0;
+        int contador=10000;
         long X=1;
         X=factorial(num);
-        String  len= Long.toString(X);
-        return len.length();
+        //String  len= Long.toString(X);
+        //return len.length();
+        for(int x = 0; x<contador; x++)
+        {
+          digitos = (long)(Math.log10(X)+1);
+        }
+        return digitos;
      }
 
      private static Long factorial (int numero) {
-       if (numero == 0) return Long.valueOf(1);
-        else return Long.valueOf(numero * factorial(numero-1));
+       long ini=1;
+       if (numero == 0) return ini;
+        else return (long)(numero * factorial(numero-1));
      } 
 
 }
